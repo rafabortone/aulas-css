@@ -47,6 +47,7 @@ header img {
   border-radius:50%;
   transition: .5s ease-in-out;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  margin: auto;
 }
 
 header img:hover {
@@ -104,7 +105,7 @@ aside p mark {
 #recomendacoes table {
   background-color: #b5c2f8;
   margin: auto;
-  padding: 16px;
+  padding: 30px;
 }
 
 #recomendacoes tr, td, th {
@@ -114,7 +115,22 @@ aside p mark {
 
 #recomendacoes .contato-fone::before {
   content: '\0260E';
-   margin-right: 4px;
+  margin-right: 4px;
+}
+#recomendacoes .contato-whats {
+  position: relative;
+}
+
+#recomendacoes .contato-whats::after {
+  content: '';
+  background-image: url("/assets/img/icon-whats.png");
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  right: -50px;
+  top: -20px;
 }
 
 #habilidades {
@@ -133,6 +149,8 @@ aside p mark {
 .habilidades-lista article {
   width: 50%;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -141,11 +159,78 @@ aside p mark {
   background-color: #152ea0;
   list-style: none;
   height: 100%;
+  padding: 16px;
+  color: #fff;
+}
+
+[class*="-item"] {
+  background-color: rgba(181, 194, 248, .2);
+  border-radius: 32px;
+  margin-bottom: 16px;
+  padding: 24px;
+}
+
+[class*="-item"]:nth-child(odd) {
+  background-color: rgba(248, 236, 181, .5);
+}
+
+[class*="-item"]:last-child {
+  background-color: rgba(248, 195, 181, 0.5);
+}
+
+[class*="-item"]:first-of-type {
+  background-color: rgba(191, 248, 181, 0.5);
+}
+
+#experienciaProfissional .profissao-item h3 {
+  margin-top: 0;
+}
+
+#experienciaProfissional .profissao-item p {
+  display: flex;
+  flex-direction: column;
+}
+
+#experienciaProfissional .profissao-item p span {
+  font-style: italic;
+}
+
+#premiosReconhecimentos {
+  background-color: rgba(181, 194, 248, .2);
+  padding: 20px;
+  border-left: 4px solid #152ea0;
+}
+
+#premiosReconhecimentos ol {
+  list-style-type: lower-roman;
+  padding: 16px;
+}
+
+#premiosReconhecimentos ol li{
+  margin-bottom: 10px;
 }
 
 
 
+#formacaoAcademica .formacao-item p {
+  display: flex;
+  flex-direction: column;
+}
 
+#formacaoAcademica .formacao-item p span {
+  font-style: italic;
+}
+
+
+footer {
+  background-color: #b5c2f8;
+  border-top: 4px solid #152ea0;
+  text-align: center;
+} 
+footer .footer-tel::before {
+  content: '\0260E';
+  margin-right: 4px;
+}
 
 
 @keyframes bordaCamaleao {
