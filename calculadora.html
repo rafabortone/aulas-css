@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+</head>
+
+<style>
+  .operacoes ul {
+    display:flex;
+    list-style: none;
+  }
+
+  .operacoes ul li {
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+</style>
+
+
+<body>
+  <div>
+    <h3>Calculadora</h3>
+    <input type="number" name="numero1" class="numero1"/>
+    <input type="number" name="numero2" class="numero2"/>
+    <button onclick="soma()" >Calcular</button>
+    <input type="text" name="resposta" class="resposta"/>
+  </div>
+
+  <div class="operacoes">
+    <ul>
+      <li class="somar" onclick="setarOperacao('Somar', this.classList.value)">Somar</li>
+      <li class="subtrair" onclick="setarOperacao('Subtrair')">Subtrair</li>
+      <li class="dividir" onclick="setarOperacao('Dividir')">Dividir</li>
+      <li class="multiplicar" onclick="setarOperacao('Multiplicar')">Multiplicar</li>
+    </ul>
+  </div>
+  
+</body>
+
+<script>
+  let operacao = '';
+
+  function setarOperacao(value, classe) {
+    operacao = value;
+
+    document.querySelector('.'+classe).style.backgroundColor = "#ccc";
+    
+  }
+
+  function soma() {
+    let num1 = 0;
+    let num2 = 0;
+    let total = 0;
+
+    num1 = parseInt(document.querySelector('.numero1').value); 
+    num2 = parseInt(document.querySelector('.numero2').value);
+
+
+    if(operacao == "Somar"){
+      total = num1 + num2;
+    } else if(operacao == "Subtrair"){
+      total = num1 - num2;
+    } else if(operacao == "Dividir"){
+      total = num1 / num2;
+    } else {
+      total = num1 * num2;
+    }
+
+    document.querySelector('.resposta').value = total;
+  }
+</script>
+
+</html>
