@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+        <body>
+                <!-- EXEMPLO ONCLICK -->
+                <button class="btn btn-warning d-block mx-auto"
+                onclick="alert('Viu só, clicou!')"
+                >
+                Clica AQUI
+                </button>
+
+        </br></br>
+
+                <!-- EXEMPLO ONCHANGE -->
+
+                Digite seu nome: <input type="text" id="fname" onchange="myFunction()"> </input>
+
+        </br></br>
+
+        <!-- EXEMPLO SETTIMEOUT -->
+
+                <button class="btn btn-primary mx-3" id="ativar"> Ativar </button>
+                <button class="btn btn-primary mx-3" id="desativar"> Desativar </button>
+
+        </br></br>
+
+        <!-- EXEMPLO SETINTERVAL -->
+
+        <h1 class="d-block text-center text-white" id="relogio2"> Que hora são mesmo? </h1>
+
+        <!-- EXEMPLO PREVENT DEFAULT -->
+
+        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="btn btn-info d-block mx-auto" id="btn">Ir para o Google</a>
+                
+        <script>
+
+                // EXEMPLO ONCHANGE
+                function myFunction() {
+                  var x = document.getElementById("fname");
+                  x.value = x.value.toUpperCase();
+                }
+
+                // EXEMPLO SETTIMEOUT
+                document.querySelector("#ativar").onclick = () => {
+                        ativar = setTimeout(() => alert("ATIVADO!"), 3000)
+                }
+
+                document.querySelector("#desativar").onclick = () => {
+                       clearTimeout( ativar )
+                       alert("DESATIVADO")
+                }
+
+                // EXEMPLO SETINTERVAL
+                const relogio2 = document.querySelector('#relogio2');
+                function mostrarHoras2() {
+                        let hoje = new Date()
+                        relogio2.innerHTML = hoje.toLocaleTimeString()
+                }
+                setInterval(mostrarHoras2, 1000)
+
+                // EXEMPLO PREVENT DEFAULT
+                document.querySelector('#btn').addEventListener('click', event => {
+                        event.preventDefault()
+                })
+
+        </script>
+
+        </body>
+</html>
