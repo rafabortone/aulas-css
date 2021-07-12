@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ 
+</head>
+<body>
+
+<button class="button__listar">Listar</button>
+
+<div class="lista__usuarios">
+  <div class="user__image"></div>
+  <div class="user__login"></div>
+</div>
+  
+</body>
+
+<script>
+
+document.querySelector('.button__listar').addEventListener('click', function () {
+
+   
+  fetch('https://api.github.com/users')
+  .then(r => r.json())
+  .then(response => {
+
+    response.map(item => {
+
+      var userImage = document.createElement('div');
+      var userLogin = document.createElement('div');
+
+      var img = document.createElement('img')
+      var p = document.createElement('p')
+
+      p.append(item.login)
+      img.src = item.avatar_url
+
+      userImage.appendChild(img);
+      userLogin.appendChild(p);
+
+      document.querySelector('.lista__usuarios').appendChild(userImage);
+      document.querySelector('.lista__usuarios').appendChild(userLogin);
+
+    })
+
+    console.log(response);
+    
+  })
+
+ 
+})
+
+</script>
+</html>
