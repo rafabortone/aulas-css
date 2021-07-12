@@ -1,113 +1,116 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Validação de formulários - DevMedia Tutorial</title>
+  <title>Validação de formulários - DevMedia Tutorial</title>
 </head>
 
 
-    
-<body>
-<form action="#" method="get" name="dados"
-onSubmit="return enviardados();" >
-  <table width="588" border="0" align="center" >
-    <tr>
-      <td width="118">Nome completo:</td>
-      <td width="460">
-        <input name="tx_nome" type="text" class="formbutton"
-        id="tx_nome" size="52" maxlength="150">
-      </td>
-    </tr>
-    <tr>
-      <td>E-mail:</td>
-      <td>
-        <input name="tx_email" type="text" id="tx_email" size="52"
-        maxlength="150" class="formbutton">
-     </td>
-    </tr>
-    <tr>
-      <td>Mensagem<strong>:
-      </strong></td>
-      <td rowspan="2">
-        <textarea name="tx_mensagem" cols="50" rows="8"
-        class="formbutton" id="tx_mensagem" input ></textarea>
-      </td>
-    </tr>
-    <tr>
-      <td height="85"><p><strong></strong></p></td>
-    </tr>
-    <tr>
-      <td height="22"></td>
-      <td>
-        <input name="Submit" type="button"  class="button-form formobjects" value="Enviar dados">
-        <input name="Reset" type="reset" class="formobjects"
-        value="Redefinir">
-      </td>
-    </tr>
-  </table>
-</form>
 
-<ul></ul>
+<body>
+  <form action="#" method="get" name="dados" onSubmit="return enviardados();">
+    <table width="588" border="0" align="center">
+      <tr>
+        <td width="118">Nome completo:</td>
+        <td width="460">
+          <input name="tx_nome" type="text" class="formbutton" id="tx_nome" size="52" maxlength="150">
+        </td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td>
+          <input name="tx_email" type="text" id="tx_email" size="52" maxlength="150" class="formbutton">
+        </td>
+      </tr>
+      <tr>
+        <td>Mensagem<strong>:
+          </strong></td>
+        <td rowspan="2">
+          <textarea name="tx_mensagem" cols="50" rows="8" class="formbutton" id="tx_mensagem" input></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td height="85">
+          <p><strong></strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td height="22"></td>
+        <td>
+          <input name="Submit" type="button" class="button-form formobjects" value="Enviar dados">
+          <input name="Reset" type="reset" class="formobjects" value="Redefinir">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <ul class="lista-contato">
+    
+  </ul>
 
 </body>
 
-<script language="JavaScript" >
+<script language="JavaScript">
 
-var listContatos = [];
+  var listContatos = [];
 
-function enviardados(){
-  
- if(document.dados.tx_nome.value=="" ||
-  document.dados.tx_nome.value.length < 5)
-  {
-  alert( "Preencha campo NOME corretamente!" );
-  document.dados.tx_nome.focus();
-  return false;
-  }
-  
-  if( document.dados.tx_email.value=="" ||
-  document.dados.tx_email.value.indexOf('@')==-1 ||
-  document.dados.tx_email.value.indexOf('.')==-1 )
-  {
-  alert( "Preencha campo E-MAIL corretamente!" );
-  document.dados.tx_email.focus();
-  return false;
-  }
-  
-  if (document.dados.tx_mensagem.value=="")
-  {
-  alert( "Preencha o campo MENSAGEM!" );
-  document.dados.tx_mensagem.focus();
-  return false;
-  }
-  
-  if (document.dados.tx_mensagem.value.length < 5 )
-  {
-  alert( "É necessario preencher o campo MENSAGEM commais de 50 caracteres!" );
-  document.dados.tx_mensagem.focus();
-  return false;
-  }
+  function enviardados() {
+
+    if (document.dados.tx_nome.value == "" ||
+      document.dados.tx_nome.value.length < 5) {
+      alert("Preencha campo NOME corretamente!");
+      document.dados.tx_nome.focus();
+      return false;
+    }
+
+    if (document.dados.tx_email.value == "" ||
+      document.dados.tx_email.value.indexOf('@') == -1 ||
+      document.dados.tx_email.value.indexOf('.') == -1) {
+      alert("Preencha campo E-MAIL corretamente!");
+      document.dados.tx_email.focus();
+      return false;
+    }
+
+    if (document.dados.tx_mensagem.value == "") {
+      alert("Preencha o campo MENSAGEM!");
+      document.dados.tx_mensagem.focus();
+      return false;
+    }
+
+    if (document.dados.tx_mensagem.value.length < 5) {
+      alert("É necessario preencher o campo MENSAGEM commais de 50 caracteres!");
+      document.dados.tx_mensagem.focus();
+      return false;
+    }
 
   }
 
 
-  document.querySelector('.button-form').addEventListener('click', function() {
+  document.querySelector('.button-form').addEventListener('click', function () {
 
-  //Cria um objeto contato que recebe em suas propriedades, o valor dos campos do formulário
-  var contato = {
-    nome: document.dados.tx_nome.value,
-    email: document.dados.tx_email.value,
-    mensagem:document.dados.tx_mensagem.value
-  }
- 
-  //Adiciona o objeto contato na lista de contato
-  listContatos.push(contato);
-  console.log(listContatos);
-  console.log(listContatos[1].email);
+    //Cria um objeto contato que recebe em suas propriedades, o valor dos campos do formulário
+    var contato = {
+      nome: document.dados.tx_nome.value,
+      email: document.dados.tx_email.value,
+      mensagem: document.dados.tx_mensagem.value
+    }
 
-  }) 
+    var item = document.createElement('li');
 
+    item.append('Nome: ' + contato.nome + ' Email: ' + contato.email);
+
+    document.querySelector('.lista-contato').append(li);
+
+
+    //Adiciona o objeto contato na lista de contato
+    listContatos.push(contato);
+    console.log(listContatos);
   
-  
-  
+
+  })
+
+
+
+
 </script>
+
 </html>
